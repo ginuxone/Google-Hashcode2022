@@ -78,8 +78,8 @@ namespace Google_Hashcode2022
         }
 
 
-            }*/
-        }
+            
+        
         public List<Contributor> end_project(List<Contributor> lista) { //toDO --> aumentare livello dei contributor
 
             List<Skill> max_lv = new List<Skill>();
