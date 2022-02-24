@@ -11,7 +11,7 @@ namespace Google_Hashcode2022
             int n_projects = 0;
             int n_contributors = 0;
             List<Contributor> contributors = new List<Contributor>();
-            List<Projects> projects = new List<Projects>();
+            List<Project> projects = new List<Project>();
             fileParser(firstLine, n_contributors, n_projects);
         }
         ///Build Models and start prioritizing Data
@@ -21,9 +21,9 @@ namespace Google_Hashcode2022
             int tmp_p = n_projects;
             Contributor c;
             Project p;
-            foreach (var item in File.ReadLines("./InputFiles/a_an_example.in.txt"))
+            foreach (var line in File.ReadLines("./InputFiles/a_an_example.in.txt"))
             {
-                int 0;
+                
                 if (firstLine)
                 {
                     firstLine = false;
