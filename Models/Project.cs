@@ -12,7 +12,6 @@ namespace Google_Hashcode2022
         int number_contributor;
         int duration;
         Dictionary<String, int> skill_list_required;
-
         List<Contributor> list_contributor;
         public Project(string name, int score, int day_to_terminate, int number_contributor, int duration,  Dictionary<String, int> skill_list_required) {
             this.name = name;
@@ -32,6 +31,14 @@ namespace Google_Hashcode2022
             this.day_to_terminate= day_to_terminate;
             this.skill_list_required= skill_list_required;
             this.list_contributor= list_contributor;
+        }
+
+        public int compareTo_duration(Project p ) {
+            return this.duration - p.duration;
+        }
+
+        public int compareTo_end (Project p) {
+            return this.day_to_terminate - p.day_to_terminate;
         }
     }
 }
