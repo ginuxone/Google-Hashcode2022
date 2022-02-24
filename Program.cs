@@ -42,13 +42,16 @@ namespace Google_Hashcode2022
                     {
                         c = new Contributor(line.Split(" ")[0]);
                         n_skills = int.Parse(line.Split(" ")[1]);
-                        n_contributors --;
+                        --n_contributors ;
                     }
                     else // insert skill in c contributor
                     {
                         int lv = Int32.Parse(line.Split(" ")[1]);
                         c.lista_skill.Add(new Skill(line.Split(" ")[0], lv));
-                        n_skills--;
+                        --n_skills;
+                    }
+                    if (n_skills == 0) {
+                        contributors.Add(c);
                     }
                 }
                 //Projects
@@ -61,12 +64,15 @@ namespace Google_Hashcode2022
                         int day = Int32.Parse(line.Split(" ")[3]);
                         n_skill_req = Int32.Parse(line.Split(" ")[4]);
                         p= new Project(name, score, day, n_skill_req, duration);
-                        n_projects--;
+                        --n_projects;
                     }
                     else { // add skill to project
                         int lv = Int32.Parse(line.Split(" ")[1]);
                         p.skill_list_required.Add(new Skill(line.Split(" ")[0], lv));
-                        n_skill_req--;
+                        --n_skill_req;
+                    }
+                    if (n_skill_req == 0) {
+                        projects.Add(p);
                     }
                 }
                 else { //end
