@@ -113,13 +113,49 @@ namespace Google_Hashcode2022
             {
                 Console.WriteLine(day);
 
+                //aggiornare e controllare se un progetto è finito
+                foreach (Project project in projects)
+                {
+                    if (assingedProjects.Contains(project))
+                    {
+                        project.duration--;
+                        if (project.duration == 0)
+                        {
+                            endProjects.Add(project);
+                            assingedProjects.Remove(project);
+                            int delay = day - project.day_to_terminate;
+                            if (delay < 0) delay = 0;
+                            score += project.score - delay;
+
+
+                            //migliorare le skills
+
+
+                            foreach (Contributor contributor in project.list_contributor)
+                            {
+                                freeContributors.Add(contributor);
+                            }
+                        }
+                    }
+                }
+
+                foreach (Project p in assingedProjects)
+                {
+                    Console.WriteLine(p.name);
+                }
+
+                Console.WriteLine("Eendproj");
+                foreach (Project p in endProjects)
+                {
+                    Console.WriteLine(p.name);
+                }
+
                 //assegnare i progetti
                 foreach (Project project in projects)
                 {
                     List<Skill> soddisfatte = new List<Skill>();
-                    if (!assingedProjects.Contains(project))
+                    if (!assingedProjects.Contains(project) && !endProjects.Contains(project))
                     {
-                        Console.WriteLine(project.name);
                         foreach (Skill reqSkill in project.skill_list_required)
                         {
                             Contributor tmp = null;
@@ -151,30 +187,6 @@ namespace Google_Hashcode2022
                         calendar.Add(assingedProjects);
                     }
                 }
-
-                //aggiornare e controllare se un progetto è finito
-                foreach (Project project in projects)
-                {
-                    if (assingedProjects.Contains(project))
-                        project.duration--;
-                    if (project.duration == 0)
-                    {
-                        endProjects.Add(project);
-                        assingedProjects.Remove(project);
-                        int delay = day - project.day_to_terminate;
-                        if (delay < 0) delay = 0;
-                        score += project.score - delay;
-
-
-                        //migliorare le skills
-
-
-                        foreach (Contributor contributor in project.list_contributor)
-                        {
-                            freeContributors.Add(contributor);
-                        }
-                    }
-                }
             }
             return endProjects;
         }
@@ -191,6 +203,7 @@ namespace Google_Hashcode2022
                 { //importante, lista di contributor in ordine già!
                     text += person.name + " "; //add people
                 }
+                text += "\n";
             }
             File.WriteAllText(path, text);
         }
