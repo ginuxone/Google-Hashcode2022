@@ -7,13 +7,14 @@ namespace Google_Hashcode2022
     {
         static void Main(string[] args)
         {
+            bool firstLine = true;
+            fileParser(firstLine);
             Console.WriteLine("Hello World!");
         }
         ///Build Models and start prioritizing Data
         private static void fileParser(bool firstLine)
         {
-            File.ReadLines("");
-            foreach (var item in File.ReadLines(""))
+            foreach (var item in File.ReadLines("./InputFiles/a_an_example.in.txt"))
             {
                 if (firstLine)
                 {
@@ -29,6 +30,9 @@ namespace Google_Hashcode2022
 
                 }
             }
+        }
+        private static void scoreSystem()
+        {
 
         }
     }
