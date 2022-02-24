@@ -160,17 +160,17 @@ namespace Google_Hashcode2022
                     }
                 }
             }
-
+            return endProjects;
         }
         private static void fileWrite(List<Project> completedProjects)
         {
             string path = "./OutputFiles/results.txt";
             string text = completedProjects.Count + "\n"; //PRIMA RIGA E' NUMERO PROGETTI
 
-            foreach (var item in completedProjects)
+            foreach (Project item in completedProjects)
             {
                 text += item.name + "\n"; //add project name
-                foreach (var person in completedProjects.list_contributor){ //importante, lista di contributor in ordine già!
+                foreach (Contributor person in item.list_contributor){ //importante, lista di contributor in ordine già!
                     text += person.name + " "; //add people
                 }
             }
