@@ -35,8 +35,7 @@ namespace Google_Hashcode2022
                     //Contributors
                     if (i == 0)
                     {
-                        c = new Contributor();
-                        c.name = line.Split(" ")[0];
+                        c = new Contributor(line.Split(" ")[0]);
                         c.n_skills = int.Parse(line.Split(" ")[1]);
                     }
                     else
