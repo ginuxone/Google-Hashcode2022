@@ -21,9 +21,9 @@ namespace Google_Hashcode2022
             int tmp_p = n_projects;
             Contributor c;
             Project p;
-            foreach (var line in File.ReadLines("./InputFiles/a_an_example.in.txt"))
+            int i = 0;
+            foreach (var item in File.ReadLines("./InputFiles/a_an_example.in.txt"))
             {
-                
                 if (firstLine)
                 {
                     firstLine = false;
@@ -32,31 +32,18 @@ namespace Google_Hashcode2022
                 }
                 else
                 {
-                    if (tmp_c > 0)
+                    //Contributors
+                    if (i == 0)
                     {
-                        if (int == 0)
-                        {
-                            c = new Contributor();
-                            c.name = line.Split(" ")[0];
-                            c.n_skills = int.Parse(line.Split(" ")[1]);
-                        }
-                        else
-                        {
-
-                        }
+                        c = new Contributor();
+                        c.name = line.Split(" ")[0];
+                        c.n_skills = int.Parse(line.Split(" ")[1]);
                     }
                     else
                     {
-                        if (int == 0)
-                        {
-
-                        }
-                        else
-                        {
-
-                        }
-
+                        c.lista_skill.add();
                     }
+                    //Projects
                 }
             }
         }
