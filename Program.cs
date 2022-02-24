@@ -10,13 +10,20 @@ namespace Google_Hashcode2022
             bool firstLine = true;
             int n_projects = 0;
             int n_contributors = 0;
+            List<Contributor> contributors = new List<Contributor>();
+            List<Projects> projects = new List<Projects>();
             fileParser(firstLine, n_contributors, n_projects);
         }
         ///Build Models and start prioritizing Data
-        private static void fileParser(bool firstLine, int n_contributors, int n_projects)
+        private static void fileParser(bool firstLine, int n_contributors, int n_projects, List<Contributor> contributors, List<Projects> projects)
         {
+            int tmp_c = n_contributors;
+            int tmp_p = n_projects;
+            Contributor c;
+            Project p;
             foreach (var item in File.ReadLines("./InputFiles/a_an_example.in.txt"))
             {
+                int 0;
                 if (firstLine)
                 {
                     firstLine = false;
@@ -25,7 +32,31 @@ namespace Google_Hashcode2022
                 }
                 else
                 {
+                    if (tmp_c > 0)
+                    {
+                        if (int == 0)
+                        {
+                            c = new Contributor();
+                            c.name = line.Split(" ")[0];
+                            c.n_skills = int.Parse(line.Split(" ")[1]);
+                        }
+                        else
+                        {
 
+                        }
+                    }
+                    else
+                    {
+                        if (int == 0)
+                        {
+
+                        }
+                        else
+                        {
+
+                        }
+
+                    }
                 }
             }
         }
