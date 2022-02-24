@@ -7,22 +7,24 @@ namespace Google_Hashcode2022
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("sasso");
             bool firstLine = true;
             int n_projects = 0;
             int n_contributors = 0;
             List<Contributor> contributors = new List<Contributor>();
             List<Project> projects = new List<Project>();
-            fileParser(firstLine, n_contributors, n_projects);
+            fileParser(firstLine, n_contributors, n_projects, contributors, projects);
         }
         ///Build Models and start prioritizing Data
-        private static void fileParser(bool firstLine, int n_contributors, int n_projects, List<Contributor> contributors, List<Projects> projects)
+        private static void fileParser(bool firstLine, int n_contributors, int n_projects, List<Contributor> contributors, List<Project> projects)
         {
             int tmp_c = n_contributors;
             int tmp_p = n_projects;
-            Contributor c;
-            Project p;
+            Contributor c = new Contributor("");
+            Project p = new Project("");
             int i = 0;
-            foreach (var item in File.ReadLines("./InputFiles/a_an_example.in.txt"))
+            int n_skills = 0;
+            foreach (var line in File.ReadLines("./InputFiles/a_an_example.in.txt"))
             {
                 if (firstLine)
                 {
@@ -33,6 +35,7 @@ namespace Google_Hashcode2022
                 else
                 {
                     //Contributors
+<<<<<<< Updated upstream
                     if (tmp_c > 0)
                     {
                         if (i == 0)
@@ -54,9 +57,22 @@ namespace Google_Hashcode2022
                                 tmp_c--;
                             }
                         }
+=======
+                    if (i == 0) //first line contributor
+                    {
+                        c = new Contributor(line.Split(" ")[0]);
+                        n_skills = int.Parse(line.Split(" ")[1]);
+                    }
+                    else // insert skill in c contributor
+                    {
+                        int lv = Int32.Parse(line.Split(" ")[1]);
+                        c.lista_skill.Add(line.Split(" ")[0], lv);
+                        i--;
+>>>>>>> Stashed changes
                     }
                     Console.WriteLine(contributors.toString());
                     //Projects
+
                 }
             }
         }

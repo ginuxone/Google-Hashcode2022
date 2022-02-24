@@ -2,17 +2,17 @@ using System;
 using System.Collections.Generic;
 namespace Google_Hashcode2022
 {
-    class Project  {
-        string name;
+    public class Project  {
+      public  string name;
 
-        int score;
+      public  int score;
 
-        int day_to_terminate;
+       public int day_to_terminate;
 
-        int number_contributor;
-        int duration;
-        Dictionary<String, int> skill_list_required;
-        List<Contributor> list_contributor;
+      public  int number_contributor;
+       public int duration;
+       public Dictionary<String, int> skill_list_required;
+       public List<Contributor> list_contributor;
         public Project(string name, int score, int day_to_terminate, int number_contributor, int duration,  Dictionary<String, int> skill_list_required) {
             this.name = name;
             this.score= score;
@@ -33,12 +33,28 @@ namespace Google_Hashcode2022
             this.list_contributor= list_contributor;
         }
 
+        public Project(string name) {
+            this.name = name;
+            this.score= -1;
+            this.number_contributor= -1;
+            this.duration= -1;
+            this.day_to_terminate= -1;
+            this.skill_list_required= new Dictionary<string, int>();
+            this.list_contributor= new List<Contributor>();
+        }
+
         public int compareTo_duration(Project p ) {
             return this.duration - p.duration;
         }
 
         public int compareTo_end (Project p) {
             return this.day_to_terminate - p.day_to_terminate;
+        }
+
+        public void end_project() { //toDO --> aumentare livello dei contributor
+           /* foreach(string skill in this.list_contributor) {
+
+            }*/
         }
     }
 }
