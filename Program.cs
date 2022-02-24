@@ -13,10 +13,6 @@ namespace Google_Hashcode2022
             List<Contributor> contributors = new List<Contributor>();
             List<Project> projects = new List<Project>();
             fileParser(firstLine, n_contributors, n_projects, contributors, projects);
-            foreach (Project p in projects)
-            {
-                Console.Write(p.name + " ");
-            }
             List<Project> endedProjects = scoreSystem(projects, contributors);
             fileWrite(endedProjects);
         }
@@ -29,7 +25,7 @@ namespace Google_Hashcode2022
             Project p = new Project("");
             int n_skill_req = 0;
             int n_skills = 0;
-            foreach (var line in File.ReadLines("./InputFiles/a_an_example.in.txt"))
+            foreach (var line in File.ReadLines("./InputFiles/c_collaboration.in.txt"))
             {
                 if (firstLine)
                 {
@@ -111,7 +107,6 @@ namespace Google_Hashcode2022
 
             for (int day = 0; day < maxScadenza; day++)
             {
-                Console.WriteLine(day);
 
                 //aggiornare e controllare se un progetto è finito
                 foreach (Project project in projects)
@@ -137,17 +132,6 @@ namespace Google_Hashcode2022
                             }
                         }
                     }
-                }
-
-                foreach (Project p in assingedProjects)
-                {
-                    Console.WriteLine(p.name);
-                }
-
-                Console.WriteLine("Eendproj");
-                foreach (Project p in endProjects)
-                {
-                    Console.WriteLine(p.name);
                 }
 
                 //assegnare i progetti
@@ -192,7 +176,6 @@ namespace Google_Hashcode2022
         }
         private static void fileWrite(List<Project> completedProjects)
         {
-            Console.WriteLine(completedProjects);
             string path = "./OutputFiles/results.txt";
             string text = completedProjects.Count + "\n"; //PRIMA RIGA E' NUMERO PROGETTI
 
