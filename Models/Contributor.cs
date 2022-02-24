@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace Google_Hashcode2022
 {
-    class Contributor{
-        String name;
-         Dictionary<String, int> lista_skill;
+   public class Contributor{
+       public String name;
+        public Dictionary<String, int> lista_skill;
 
         public Contributor(string name,  Dictionary<String, int> lista) {
             this.name = name;
