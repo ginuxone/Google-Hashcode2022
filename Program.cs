@@ -33,15 +33,29 @@ namespace Google_Hashcode2022
                 else
                 {
                     //Contributors
-                    if (i == 0)
+                    if (tmp_c > 0)
                     {
-                        c = new Contributor(line.Split(" ")[0]);
-                        c.n_skills = int.Parse(line.Split(" ")[1]);
+                        if (i == 0)
+                        {
+                            c = new Contributor(line.Split(" ")[0]);
+                            c.n_skills = int.Parse(line.Split(" ")[1]);
+                            i++;
+                        }
+                        else
+                        {
+                            if (i < c.n_skills)
+                            {
+                                c.lista_skill.add[line.Split(" ")[0], int.Parse(line.Split(" ")[1])];
+                                i++;
+                            }
+                            else
+                            {
+                                i = 0;
+                                tmp_c--;
+                            }
+                        }
                     }
-                    else
-                    {
-                        c.lista_skill.add();
-                    }
+                    Console.WriteLine(contributors.toString());
                     //Projects
                 }
             }
