@@ -174,6 +174,7 @@ namespace Google_Hashcode2022
             }
             return endProjects;
         }
+        
         private static void fileWrite(List<Project> completedProjects)
         {
             string path = "./OutputFiles/results.txt";
@@ -190,5 +191,11 @@ namespace Google_Hashcode2022
             }
             File.WriteAllText(path, text);
         }
+
+    /*    private static List<Project> scoreSystem_rapporto (List<Contributor> lista_c, List<Project> lista_p) {
+            List<Project> res = new List<Project>();
+            for (int i =0; i )
+            return res;
+        }*/
     }
 }

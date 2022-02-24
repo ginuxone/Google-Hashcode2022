@@ -8,5 +8,14 @@ namespace Google_Hashcode2022{
             this.name = name;
             this.level = level;
         }
+
+        public int conmpareTo_name(Skill s){
+            return this.name.CompareTo(s.name);
+        }
+        public int compareTo_level(Skill s) {
+            return this.level - s.level;
+        }
+
+       
     }
 }

@@ -77,10 +77,46 @@ namespace Google_Hashcode2022
             return this.score/this.duration - p.score/p.duration;
         }
 
-        public void end_project() { //toDO --> aumentare livello dei contributor
-           /* foreach(string skill in this.list_contributor) {
 
-             }*/
+            }*/
+        }
+        public List<Contributor> end_project(List<Contributor> lista) { //toDO --> aumentare livello dei contributor
+
+            List<Skill> max_lv = new List<Skill>();
+
+            for (int k= 0; k< this.skill_list_required.Count; k++ ) {
+                Skill s = this.skill_list_required[k];
+                bool edit = false;
+                foreach(Contributor c in this.list_contributor) {
+                    for(int i =0; i< c.lista_skill.Count; i++) {
+                        Skill ss = c.lista_skill[i];
+                        if(ss.conmpareTo_name(s)== 0) {
+                            if (!edit ){
+                            edit = true;
+                            max_lv[k] = ss;
+                            }
+                            else if(max_lv[k].level < ss.level)
+                                max_lv[k]= ss;
+                        }
+                    }
+                }       
+            }
+
+            foreach(Skill s in max_lv) {
+                foreach(Contributor c in this.list_contributor) {
+                    foreach(Contributor cc in lista) {
+                        if(cc.name == c.name) {
+                            foreach(Skill ss in cc.lista_skill) {
+                                if (ss.name == s.name && s.level> ss.level) {
+                                   ++ ss.level;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        return lista;
         }
     }
 }
