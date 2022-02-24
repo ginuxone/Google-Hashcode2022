@@ -11,7 +11,7 @@ namespace Google_Hashcode2022
 
       public  int number_contributor;
        public int duration;
-       public Dictionary<String, int> skill_list_required;
+       public List<Skill> skill_list_required;
        public List<Contributor> list_contributor;
         public Project(string name, int score, int day_to_terminate, int number_contributor, int duration,  Dictionary<String, int> skill_list_required) {
             this.name = name;

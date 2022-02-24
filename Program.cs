@@ -104,11 +104,11 @@ namespace Google_Hashcode2022
                     if (project.duration == 0)
                     {
                         endProjects.Add(project);
-                        foreach (Contributor contributor in project.contributors)
+                        foreach (Contributor contributor in project.list_contributor)
                         {
                             freeContributors.Add(contributor);
                             assingedProjects.Remove(project);
-                            int delay = day - project.bestbefore;
+                            int delay = day - project.day_to_terminate;
                             if (delay < 0) delay = 0;
                             score += project.score - delay;
 
@@ -124,26 +124,26 @@ namespace Google_Hashcode2022
                     List<Skill> soddisfatte = new List<Skill>();
                     if (!assingedProjects.Contains(project) && !endProjects.Contains(project))
                     {
-                        foreach (Skill reqSkill in project.skills)
+                        foreach (Skill reqSkill in project.skill_list_required)
                         {
                             foreach (Contributor contributor in contributors)
                             {
                                 if (freeContributors.Contains(contributor))
                                 {
-                                    foreach (Skill contSkill in contributor.skills)
+                                    foreach (Skill contSkill in contributor.lista_skill)
                                     {
                                         if (contSkill.name == reqSkill.name && contSkill.level >= reqSkill.level)
                                         {
                                             freeContributors.Remove(contributor);
-                                            project.nContributors--;
-                                            project.contributors.Add(contributor);
+                                            project.number_contributor--;
+                                            project.list_contributor.Add(contributor);
                                             soddisfatte.Add(reqSkill);
                                         }
                                     }
                                 }
                             }
                         }
-                        if (project.nContributors == 0)
+                        if (project.number_contributor == 0)
                         {
                             assingedProjects.Add(project);
                         }

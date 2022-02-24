@@ -1,11 +1,13 @@
-class Skill
-{
-    public string name = "";
-    public int level;
-
-    Skill(string name, int level)
+namespace Google_Hashcode2022{
+    public class Skill
     {
-        this.name = name;
-        this.level = level;
+        public string name = "";
+        public int level;
+
+        Skill(string name, int level)
+        {
+            this.name = name;
+            this.level = level;
+        }
     }
 }
