@@ -6,8 +6,8 @@ namespace Google_Hashcode2022
         String name;
          Dictionary<String, int> lista_skill;
 
-        public Contributor(string n,  Dictionary<String, int> lista) {
-            this.name = n;
+        public Contributor(string name,  Dictionary<String, int> lista) {
+            this.name = name;
             this.lista_skill= lista;
         }
 
