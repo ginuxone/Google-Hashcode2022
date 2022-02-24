@@ -180,6 +180,7 @@ namespace Google_Hashcode2022
         }
         private static void fileWrite(List<Project> completedProjects)
         {
+            Console.WriteLine(completedProjects);
             string path = "./OutputFiles/results.txt";
             string text = completedProjects.Count + "\n"; //PRIMA RIGA E' NUMERO PROGETTI
 
