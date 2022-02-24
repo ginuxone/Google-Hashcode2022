@@ -47,7 +47,7 @@ namespace Google_Hashcode2022
                     else // insert skill in c contributor
                     {
                         int lv = Int32.Parse(line.Split(" ")[1]);
-                        c.lista_skill.Add(line.Split(" ")[0], lv);
+                        c.lista_skill.Add(new Skill(line.Split(" ")[0], lv));
                         n_skills--;
                     }
                 }
@@ -65,7 +65,7 @@ namespace Google_Hashcode2022
                     }
                     else { // add skill to project
                         int lv = Int32.Parse(line.Split(" ")[1]);
-                        p.skill_list_required.Add(line.Split(" ")[0], lv);
+                        p.skill_list_required.Add(new Skill(line.Split(" ")[0], lv));
                         n_skill_req--;
                     }
                 }

@@ -1,6 +1,5 @@
 namespace Google_Hashcode2022{
-    public class Skill
-    {
+    public class Skill {
         public string name = "";
         public int level;
 
