@@ -2,21 +2,18 @@ using System.Collections.Generic;
 
 namespace Google_Hashcode2022
 {
-    class Contributor
-    {
+    class Contributor{
         String name;
          Dictionary<String, int> lista_skill;
 
-        public Contributor(string n, List<String> lista)
-        {
+        public Contributor(string n,  Dictionary<String, int> lista) {
             this.name = n;
-            this.lista_skill = lista;
+            this.lista_skill= lista;
         }
 
-        public Contributor(string n)
-        {
+         public Contributor(string n) {
             this.name = n;
-            this.lista_skill = new List<string>();
+            this.lista_skill= new  Dictionary<String, int>();
         }
     }
 }
