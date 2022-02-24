@@ -11,7 +11,6 @@ namespace Google_Hashcode2022
             int n_projects = 0;
             int n_contributors = 0;
             fileParser(firstLine, n_contributors, n_projects);
-            Console.WriteLine("Hello World!");
         }
         ///Build Models and start prioritizing Data
         private static void fileParser(bool firstLine, int n_contributors, int n_projects)
