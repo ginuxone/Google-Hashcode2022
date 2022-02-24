@@ -6,14 +6,16 @@ namespace Google_Hashcode2022
        public String name;
         public Dictionary<String, int> lista_skill;
 
-        public Contributor(string name,  Dictionary<String, int> lista) {
+        public Contributor(string name, Dictionary<String, int> lista)
+        {
             this.name = name;
-            this.lista_skill= lista;
+            this.lista_skill = lista;
         }
 
-         public Contributor(string n) {
+        public Contributor(string n)
+        {
             this.name = n;
-            this.lista_skill= new  Dictionary<String, int>();
+            this.lista_skill = new Dictionary<String, int>();
         }
     }
 }

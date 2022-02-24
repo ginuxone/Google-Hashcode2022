@@ -15,22 +15,23 @@ namespace Google_Hashcode2022
        public List<Contributor> list_contributor;
         public Project(string name, int score, int day_to_terminate, int number_contributor, int duration,  Dictionary<String, int> skill_list_required) {
             this.name = name;
-            this.score= score;
-            this.number_contributor= number_contributor;
-            this.duration= duration;
-            this.day_to_terminate= day_to_terminate;
-            this.skill_list_required= skill_list_required;
-            this.list_contributor= new List<Contributor>();
+            this.score = score;
+            this.number_contributor = number_contributor;
+            this.duration = duration;
+            this.day_to_terminate = day_to_terminate;
+            this.skill_list_required = skill_list_required;
+            this.list_contributor = new List<Contributor>();
         }
 
-        public Project(string name, int score, int day_to_terminate, int number_contributor, int duration,  Dictionary<String, int> skill_list_required, List<Contributor> list_contributor) {
+        public Project(string name, int score, int day_to_terminate, int number_contributor, int duration, Dictionary<String, int> skill_list_required, List<Contributor> list_contributor)
+        {
             this.name = name;
-            this.score= score;
-            this.number_contributor= number_contributor;
-            this.duration= duration;
-            this.day_to_terminate= day_to_terminate;
-            this.skill_list_required= skill_list_required;
-            this.list_contributor= list_contributor;
+            this.score = score;
+            this.number_contributor = number_contributor;
+            this.duration = duration;
+            this.day_to_terminate = day_to_terminate;
+            this.skill_list_required = skill_list_required;
+            this.list_contributor = list_contributor;
         }
 
         public Project(string name) {
@@ -47,7 +48,8 @@ namespace Google_Hashcode2022
             return this.duration - p.duration;
         }
 
-        public int compareTo_end (Project p) {
+        public int compareTo_end(Project p)
+        {
             return this.day_to_terminate - p.day_to_terminate;
         }
 

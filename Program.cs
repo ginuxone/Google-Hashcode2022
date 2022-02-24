@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Google_Hashcode2022
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -55,11 +55,13 @@ namespace Google_Hashcode2022
         {
 
         }
-        private static void fileWrite(List<Project> completedProjects){
-            string path="./OutputFiles/results.txt";
+        private static void fileWrite(List<Project> completedProjects)
+        {
+            string path = "./OutputFiles/results.txt";
             string text = completedProjects.Count + "\n"; //PRIMA RIGA E' NUMERO PROGETTI
 
-            foreach (var item in completedProjects){
+            foreach (var item in completedProjects)
+            {
                 text += item.name + "\n"; //add project name
        /*         foreach (var person in completedProjects.list_contributor){ //importante, lista di contributor in ordine già!
                     text += person.name + " "; //add people
