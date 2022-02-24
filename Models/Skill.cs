@@ -3,7 +3,7 @@ namespace Google_Hashcode2022{
         public string name = "";
         public int level;
 
-        Skill(string name, int level)
+        public Skill(string name, int level)
         {
             this.name = name;
             this.level = level;
