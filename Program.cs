@@ -14,6 +14,9 @@ namespace Google_Hashcode2022
             List<Contributor> contributors = new List<Contributor>();
             List<Project> projects = new List<Project>();
             fileParser(firstLine, n_contributors, n_projects, contributors, projects);
+            foreach(Project p in projects) {
+                Console.Write(p.name + " ");
+            }
         }
         ///Build Models and start prioritizing Data
         private static void fileParser(bool firstLine, int n_contributors, int n_projects, List<Contributor> contributors, List<Project> projects)
@@ -22,7 +25,7 @@ namespace Google_Hashcode2022
             int tmp_p = n_projects;
             Contributor c = new Contributor("");
             Project p = new Project("");
-            int i = 0;
+            int n_skill_req = 0;
             int n_skills = 0;
             foreach (var line in File.ReadLines("./InputFiles/a_an_example.in.txt"))
             {
@@ -32,23 +35,44 @@ namespace Google_Hashcode2022
                     n_contributors = int.Parse(line.Split(" ")[0]);
                     n_projects = int.Parse(line.Split(" ")[1]);
                 }
-                else
-                {
+                else if (n_contributors >0 || n_skills > 0) {
+                    
                     //Contributors
-                    if (i == 0) //first line contributor
+                    if (n_skills == 0) //first line contributor
                     {
                         c = new Contributor(line.Split(" ")[0]);
                         n_skills = int.Parse(line.Split(" ")[1]);
+                        n_contributors --;
                     }
                     else // insert skill in c contributor
                     {
                         int lv = Int32.Parse(line.Split(" ")[1]);
                         c.lista_skill.Add(line.Split(" ")[0], lv);
-                        i--;
+                        n_skills--;
                     }
-                    //Projects
-
                 }
+                //Projects
+                else if (n_projects > 0 || n_skill_req > 0){
+                     
+                    if(n_skill_req == 0){ // new project
+                        string name = line.Split(" ")[0];
+                        int duration = Int32.Parse(line.Split(" ")[1]);
+                        int score = Int32.Parse(line.Split(" ")[2]);
+                        int day = Int32.Parse(line.Split(" ")[3]);
+                        n_skill_req = Int32.Parse(line.Split(" ")[4]);
+                        p= new Project(name, score, day, n_skill_req, duration);
+                        n_projects--;
+                    }
+                    else { // add skill to project
+                        int lv = Int32.Parse(line.Split(" ")[1]);
+                        p.skill_list_required.Add(line.Split(" ")[0], lv);
+                        n_skill_req--;
+                    }
+                }
+                else { //end
+                    Console.WriteLine("----------------- ERROR IN READING INPUT FILE ----------------------");
+                }
+
             }
         }
         private static void scoreSystem()
@@ -138,7 +162,7 @@ namespace Google_Hashcode2022
             foreach (var item in completedProjects)
             {
                 text += item.name + "\n"; //add project name
-       /*         foreach (var person in completedProjects.list_contributor){ //importante, lista di contributor in ordine già!
+             /*   foreach (var person in completedProjects.list_contributor){ //importante, lista di contributor in ordine già!
                     text += person.name + " "; //add people
                 }*/
             }
