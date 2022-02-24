@@ -62,6 +62,10 @@ namespace Google_Hashcode2022
             return this.day_to_terminate - p.day_to_terminate;
         }
 
+        public float compareTo_rap_score_duration(Project p) {
+            return this.score/this.duration - p.score/p.duration;
+        }
+
         public void end_project() { //toDO --> aumentare livello dei contributor
            /* foreach(string skill in this.list_contributor) {
 
