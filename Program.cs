@@ -130,16 +130,22 @@ namespace Google_Hashcode2022
                 foreach (Project project in projects)
                 {
                     List<Skill> soddisfatte = new List<Skill>();
+                     // se il progetto non è stato assegnato e non è neanche completato
                     if (!assingedProjects.Contains(project) && !endProjects.Contains(project))
                     {
+                        //scorriamo le skill da assegnare
                         foreach (Skill reqSkill in project.skill_list_required)
                         {
+                            //per ogni skill da assegnare cerchiamo il primo contributor libero che la possiede
                             foreach (Contributor contributor in contributors)
                             {
+                                
                                 if (freeContributors.Contains(contributor))
                                 {
+
                                     foreach (Skill contSkill in contributor.lista_skill)
                                     {
+                                        //non abbiamo considerato il mentoring
                                         if (contSkill.name == reqSkill.name && contSkill.level >= reqSkill.level)
                                         {
                                             freeContributors.Remove(contributor);
@@ -164,6 +170,7 @@ namespace Google_Hashcode2022
         }
         private static void fileWrite(List<Project> completedProjects)
         {
+            Console.WriteLine(completedProjects);
             string path = "./OutputFiles/results.txt";
             string text = completedProjects.Count + "\n"; //PRIMA RIGA E' NUMERO PROGETTI
 
