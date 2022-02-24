@@ -17,6 +17,8 @@ namespace Google_Hashcode2022
             foreach(Project p in projects) {
                 Console.Write(p.name + " ");
             }
+            List<Project> endedProjects = scoreSystem();
+            fileWrite(endedProjects);
         }
         ///Build Models and start prioritizing Data
         private static void fileParser(bool firstLine, int n_contributors, int n_projects, List<Contributor> contributors, List<Project> projects)
@@ -81,7 +83,7 @@ namespace Google_Hashcode2022
 
             }
         }
-        private static void scoreSystem()
+        private static List<Project> scoreSystem()
         {
             List<List<Project>> calendar = new List<List<Project>>();
             List<Project> projects = new List<Project>();
@@ -168,9 +170,9 @@ namespace Google_Hashcode2022
             foreach (var item in completedProjects)
             {
                 text += item.name + "\n"; //add project name
-             /*   foreach (var person in completedProjects.list_contributor){ //importante, lista di contributor in ordine già!
+                foreach (var person in completedProjects.list_contributor){ //importante, lista di contributor in ordine già!
                     text += person.name + " "; //add people
-                }*/
+                }
             }
             File.WriteAllText(path, text);
         }
