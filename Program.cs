@@ -35,29 +35,6 @@ namespace Google_Hashcode2022
                 else
                 {
                     //Contributors
-<<<<<<< Updated upstream
-                    if (tmp_c > 0)
-                    {
-                        if (i == 0)
-                        {
-                            c = new Contributor(line.Split(" ")[0]);
-                            c.n_skills = int.Parse(line.Split(" ")[1]);
-                            i++;
-                        }
-                        else
-                        {
-                            if (i < c.n_skills)
-                            {
-                                c.lista_skill.add[line.Split(" ")[0], int.Parse(line.Split(" ")[1])];
-                                i++;
-                            }
-                            else
-                            {
-                                i = 0;
-                                tmp_c--;
-                            }
-                        }
-=======
                     if (i == 0) //first line contributor
                     {
                         c = new Contributor(line.Split(" ")[0]);
@@ -68,9 +45,7 @@ namespace Google_Hashcode2022
                         int lv = Int32.Parse(line.Split(" ")[1]);
                         c.lista_skill.Add(line.Split(" ")[0], lv);
                         i--;
->>>>>>> Stashed changes
                     }
-                    Console.WriteLine(contributors.toString());
                     //Projects
 
                 }
@@ -86,9 +61,9 @@ namespace Google_Hashcode2022
 
             foreach (var item in completedProjects){
                 text += item.name + "\n"; //add project name
-                foreach (var person in completedProjects.list_contributor){ //importante, lista di contributor in ordine già!
+       /*         foreach (var person in completedProjects.list_contributor){ //importante, lista di contributor in ordine già!
                     text += person.name + " "; //add people
-                }
+                }*/
             }
             File.WriteAllText(path, text);
         }
